@@ -3,6 +3,15 @@ from webcolors import name_to_rgb  # pip install webcolors
 from config import config
 
 
+def to_RGB_and_save(image: Image) -> Image:
+    # see https://sleepless-se.net/2019/02/27/ special thanks!
+    if image.mode == 'RGB': return image
+    image.load()  # required for png.split()
+    background = Image.new("RGB", image.size, (255, 255, 255))
+    background.paste(image, mask=image.split()[3])  # 3 is the alpha channel
+
+    background.save(config['save_path'], 'JPEG', quality=80)
+
 # 初期設定。
 img = Image.open(config['template_img'])
 img_cp = img.copy()
@@ -29,4 +38,5 @@ draw.text(((W-w)/2, 250), config['title1'], fill=config['font_color'], font=fnt_
 w, h = draw.textsize(config['title2'], font=fnt_ti)
 draw.text(((W-w)/2, 350), config['title2'], fill=config['font_color'], font=fnt_ti)
 
-img_cp.save(config['save_path'])
+to_RGB_and_save(img_cp)
+# img_cp.save(config['save_path'])

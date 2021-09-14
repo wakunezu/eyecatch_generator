@@ -15,4 +15,4 @@ python main.py
 ```
 を実行するだけ。以下のような画像がout.pngに保存されます。
 template.jpgを変えるなどして自分好みにご利用ください。
-![出力画像](./out.png)
+![出力画像](./out.jpg)
