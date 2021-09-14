@@ -1,6 +1,6 @@
 config = {
     'font': './fonts/NotoSansCJKjp-Black.otf',  # 文字のフォント
-    'save_path': './out.png',
+    'save_path': './out.jpg',
     'font_color': 'white',  # 文字色
     'template_img': './template.jpg',  # テンプレ画像
     'bg_color': 'red',  # バックグラウンドカラー
